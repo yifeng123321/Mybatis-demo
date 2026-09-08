@@ -82,4 +82,7 @@ public class User {
                 + ", updatedAt=" + updatedAt
                 + '}';
     }
+
+    public void setCreateTime(Date date) {
+    }
 }

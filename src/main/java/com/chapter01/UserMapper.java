@@ -18,6 +18,9 @@ public interface UserMapper {
     /* ==================== 原有方法（保持兼容）==================== */
 
     /** 查询所有用户 */
+    List<User> findAll();
+
+    /** 查询所有用户 */
     List<User> findAllByxml();
 
     /** 测试查询（固定查询 zhangsan） */
@@ -51,4 +54,7 @@ public interface UserMapper {
 
     /** 查询所有用户 */
     List<User> selectAll();
+
+    /** 根据用户名模糊查询用户 */
+    List<User> findByUsernameLike(String username);
 }
