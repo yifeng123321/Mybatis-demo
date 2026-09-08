@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.util.Date;
@@ -17,13 +19,18 @@ import java.util.Map;
 
 public class UserMapperTest {
 
+    /** 业务日志示例：通过 SLF4J 接口记录，由 slf4j-log4j12 桥接到底层 Log4j */
+    private static final Logger log = LoggerFactory.getLogger(UserMapperTest.class);
+
     private SqlSessionFactory sqlSessionFactory;
     private SqlSession sqlSession;
 
     @Before
     public void init() throws Exception {
+        log.debug("开始创建 SqlSessionFactory ...");
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+        log.info("SqlSessionFactory 构建完成");
     }
 
     @After
